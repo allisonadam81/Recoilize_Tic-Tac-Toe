@@ -8,11 +8,14 @@ import {
 } from 'recoil';
 import Board from './components/board';
 import Scoreboard from './components/Scoreboard';
+import RecoilizeDebugger from 'recoilize';
+console.log(RecoilizeDebugger);
 
 function App() {
   return (
     <RecoilRoot>
-      <div class='main-container'>
+      <RecoilizeDebugger/>
+      <div className='main-container'>
         <h1>The Infamous Tic-Tac-Toe</h1>
         <Board/>
         <Scoreboard/>
