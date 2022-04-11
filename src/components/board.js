@@ -8,7 +8,7 @@ import React from 'react';
 // } from 'recoil';
 
 import Box from './box';
-import '../board.css'
+import '../board.css';
 function Board() {
   // create an array to contain individual box components
   const board = [];

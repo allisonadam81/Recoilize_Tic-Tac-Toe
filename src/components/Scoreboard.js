@@ -15,7 +15,6 @@ const Scoreboard = props => {
 const playerIsUp = useRecoilValue(playerIsUpStateSelector);
 const playerIsWinning = useRecoilValue(playerIsWinningStateSelector);
 
-
   return (
     <div class='scoreboard-container'>
       <div>{`${playerIsUp}`}</div>

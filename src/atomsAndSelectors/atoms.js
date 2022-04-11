@@ -45,7 +45,7 @@ export const playerIsWinningStateSelector = selector({
     // declare what we will later render
     let displayLeader = `Currently tied at ${score.X}-${score.O}`
     // if the game count does exist (meaning, is not 0, resulting in a tie math) then set display leader to whoever is winning
-    if (gameCount) displayLeader = gameCount > 0 ? `Player X is winning by ${Math.abs(gameCount)}` : `Player O is winning by ${Math.abs(gameCount)}`
+    if (gameCount) displayLeader = gameCount > 0 ? `Player X is winning by ${Math.abs(gameCount)}` : `Player O is winning by ${Math.abs(gameCount)}`;
       // if it doesn't exist, meaning the differece is 0 and the match is tied, then display the tie score.
     return displayLeader;
   }
