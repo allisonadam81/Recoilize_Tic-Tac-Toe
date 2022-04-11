@@ -7,7 +7,7 @@ import {
   useRecoilValue,
 } from 'recoil';
 
-import {boardState, currentPlayer} from '../atoms/atoms';
+import { boardState, currentPlayer } from '../atomsAndSelectors/atoms';
 import '../board.css'
 
 function Box(props) {
@@ -28,9 +28,7 @@ function Box(props) {
     setCurrPlayer(newPlayer);
   }
   return(
-    <div className='individualBox' onClick={() => {handleClick(props.index)}}>
-        {board[props.index]}
-    </div>
+      <button className='individualBox' onClick={() => { handleClick(props.index) }}>{board[props.index]}</button>     
   )
 }
 

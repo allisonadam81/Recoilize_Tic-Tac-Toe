@@ -7,11 +7,16 @@ import {
   // useRecoilValue,
 } from 'recoil';
 import Board from './components/board';
+import Scoreboard from './components/Scoreboard';
 
 function App() {
   return (
     <RecoilRoot>
-      <Board/>
+      <div class='main-container'>
+        <h1>The Infamous Tic-Tac-Toe</h1>
+        <Board/>
+        <Scoreboard/>
+      </div>
     </RecoilRoot>
   )
 }

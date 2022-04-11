@@ -2,11 +2,22 @@
   padding: 0;
   margin: 0;
 }
+body {
+  background: lightblue;
+  font-family:'Courier New', Courier, monospace
+}
 
 #boardContainer {
   display: grid;
+  margin: 20px;
   grid-template-columns: repeat(3, 1fr);
-  width: 300px;
+  width: 45%;
+}
+
+.scoreboard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .individualBox {
@@ -18,6 +29,19 @@
 }
 
 .individualBox:hover {
-  background: lightblue;
+  background: rgb(78, 196, 255);
   cursor: pointer;
+}
+
+.main-container {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+h1 {
+  text-align: center;
+  margin: 5px;
 }
