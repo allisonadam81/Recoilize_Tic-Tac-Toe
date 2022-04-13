@@ -3,32 +3,30 @@ import {
   // RecoilRoot,
   // atom,
   // selector,
-  useRecoilState,
-  // useRecoilValue,
+  // useRecoilState,
+  useRecoilValue,
+  useSetRecoilState
 } from 'recoil';
 
-import { boardState, currentPlayer } from '../atomsAndSelectors/atoms';
+import { boardState, nextPlayerSetSelector, newBoardSetStateSelector } from '../atomsAndSelectors/atoms';
 import '../board.css'
 
 function Box(props) {
-  // use the imported boardState atom
-  const [board, setBoard] = useRecoilState(boardState);
-  // use the imported currentPlayer atom
-  const [currPlayer, setCurrPlayer] = useRecoilState(currentPlayer);
-  // create an click handler function for whenever a box gets clicked that accepts the
-  // position on the board of the current box
+  // grab the value of the board atom
+  const board = useRecoilValue(boardState);
+  // create a function that will set the new player
+  const setNewPlayer = useSetRecoilState(nextPlayerSetSelector);
+  // create a function that will set the new board based on the click index
+  const setBoard = useSetRecoilState(newBoardSetStateSelector);
+
   function handleClick(i) {
-    console.log('we in here!!');
-    // update the board based on the current player
-    const newBoard = [...board];
-    newBoard[i] = currPlayer;
-    setBoard(newBoard);
-    // update the currentPlayer based on whatever currPlayer is at the moment
-    const newPlayer = currPlayer === 'X' ? 'O' : 'X';
-    setCurrPlayer(newPlayer);
+    // on the click, set the board and set the new player.
+    setBoard(i);
+    setNewPlayer();
   }
+  
   return(
-      <button className='individualBox' onClick={() => { handleClick(props.index) }}>{board[props.index]}</button>     
+      <button className='individualBox' onClick={() => {handleClick(props.index) }}>{board[props.index]}</button>     
   )
 }
 

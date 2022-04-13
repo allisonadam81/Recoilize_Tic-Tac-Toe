@@ -25,29 +25,21 @@ export const scoreboard = atom({
   default: { 'X': 0, 'O': 0}
 });
 
-
-
-// modify the selector functions below to add writable setters
-
-// ORIGINAL CODDE
-// export const playerIsUpStateSelector = selector({
-//   key: 'playerIsUpState',
-//   get: ({get}) => {
-//     const player = get(currentPlayer);
-//     return `Player ${player} is up!`
-//   }
-// })
-
-// WRITABLE SELECTOR VERSION
 export const playerIsUpStateSelector = selector({
-  key: 'playerIsUpState',
-  set: ( {set, get}, nextPlayer ) => { // second parameter of the set function is the newValue
-    set(currentPlayer, [...get(currentPlayer), nextPlayer]);
-    return `Player ${nextPlayer} is up!` // this doesnt look right lulz
+  key: 'playerIsUpStateSelector',
+  get: ({get}) => {
+    const player = get(currentPlayer);
+    return player;
   }
 })
 
-
+export const nextPlayerSetSelector = selector({
+  key: 'nextPlayerSetSelector',
+  set: ( {set, get} ) => {
+    const nextPlayer = get(currentPlayer) === 'X' ? 'O' : 'X'; 
+    set(currentPlayer, nextPlayer);
+  }
+}) 
 
 export const playerIsWinningStateSelector = selector({
   key: 'playerIsWinningStateSelector',
@@ -65,3 +57,22 @@ export const playerIsWinningStateSelector = selector({
     return displayLeader;
   }
 })
+
+export const newBoardSetStateSelector = selector({
+  key: 'newBoardSetStateSelector',
+  set: ({set, get}, currentBox ) => {
+    const newBoardState = [...get(boardState)];
+    const currPlayer = get(currentPlayer);
+    newBoardState[currentBox] = currPlayer;
+    set(boardState, newBoardState);
+  }
+});
+
+
+
+
+
+
+
+
+
