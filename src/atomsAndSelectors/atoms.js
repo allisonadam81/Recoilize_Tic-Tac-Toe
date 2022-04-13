@@ -25,13 +25,29 @@ export const scoreboard = atom({
   default: { 'X': 0, 'O': 0}
 });
 
+
+
+// modify the selector functions below to add writable setters
+
+// ORIGINAL CODDE
+// export const playerIsUpStateSelector = selector({
+//   key: 'playerIsUpState',
+//   get: ({get}) => {
+//     const player = get(currentPlayer);
+//     return `Player ${player} is up!`
+//   }
+// })
+
+// WRITABLE SELECTOR VERSION
 export const playerIsUpStateSelector = selector({
   key: 'playerIsUpState',
-  get: ({get}) => {
-    const player = get(currentPlayer);
-    return `Player ${player} is up!`
+  set: ( {set, get}, nextPlayer ) => { // second parameter of the set function is the newValue
+    set(currentPlayer, [...get(currentPlayer), nextPlayer]);
+    return `Player ${nextPlayer} is up!` // this doesnt look right lulz
   }
 })
+
+
 
 export const playerIsWinningStateSelector = selector({
   key: 'playerIsWinningStateSelector',
@@ -41,7 +57,6 @@ export const playerIsWinningStateSelector = selector({
 
     // see who is ahead in games
     const gameCount = score.X - score.O;
-    console.log(gameCount);
     // declare what we will later render
     let displayLeader = `Currently tied at ${score.X}-${score.O}`
     // if the game count does exist (meaning, is not 0, resulting in a tie math) then set display leader to whoever is winning
