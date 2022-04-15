@@ -60,7 +60,7 @@ export const playerIsWinningStateSelector = selector({
 
 export const newBoardSetStateSelector = selector({
   key: 'newBoardSetStateSelector',
-  set: ({set, get}, currentBox ) => {
+  set: ({set, get}, currentBox) => {
     const newBoardState = [...get(boardState)];
     const currPlayer = get(currentPlayer);
     newBoardState[currentBox] = currPlayer;

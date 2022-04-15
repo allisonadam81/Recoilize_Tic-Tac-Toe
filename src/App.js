@@ -4,12 +4,14 @@ import {
   // atom,
   // selector,
   // useRecoilState,
+  useRecoilSnapshot
   // useRecoilValue,
 } from 'recoil';
 import Board from './components/board';
 import Scoreboard from './components/Scoreboard';
 import RecoilizeDebugger from 'recoilize';
 // console.log(RecoilizeDebugger);
+
 
 function App() {
   return (
