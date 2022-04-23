@@ -11,22 +11,7 @@ useRecoilSnapshot,
 import Box from './box';
 import '../board.css';
 function Board() {
-  const snapshot = useRecoilSnapshot();
-  // console.log('useRecoilSnapshot from board.js of TTT: ', snapshot);
-  // console.log('Snapshot Info from board.js of TTT: ', snapshot.getInfo_UNSTABLE);
-  // console.log("storeState", )
-  // const nodes = [...snapshot.getNodes_UNSTABLE()];
-  // console.log('Nodes: ', nodes);
-  // const info = [...React.getInfo_UNSTABLE]
-  // console.log(info);
-  // const deps = [...snapshot.getDeps_UNSTABLE()] // THIS BREAKS
-  // console.log('Deps: ', deps)  
-  // const subscribers = [...snapshot.getSubscribers_UNSTABLE]; // THIS BREAKS
-  // console.log(subscribers);
-  // create an array to contain individual box components 
-
-  // const loadables = snapshot.getLoadable(); // THIS BREAKS
-  // console.log(loadables)
+  //const snapshot = useRecoilSnapshot();
 
   const board = [];
   // provide an attribute for each box as the index position of the board they will represent

@@ -4,7 +4,7 @@ import {
   // atom,
   // selector,
   // useRecoilState,
-  useRecoilSnapshot
+  // useRecoilSnapshot
   // useRecoilValue,
 } from 'recoil';
 import Board from './components/board';
